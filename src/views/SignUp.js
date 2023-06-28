@@ -30,7 +30,6 @@ let history = useHistory();
 
 const responseGoogle = (response) => {
     
-  console.log('res is',response);
   const user = {
     first_name: response.profileObj.givenName,
     last_name: response.profileObj.familyName,
@@ -40,7 +39,6 @@ const responseGoogle = (response) => {
     password1: 'Aish@123'
     
   };
-  // console.log('first name is',first_name);
 
   fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
     method: "POST",
@@ -53,7 +51,6 @@ const responseGoogle = (response) => {
     .then((data) => {
     })
     .catch((e) => {
-      console.log("errors", e);
     });
   localStorage.setItem(
     "login",
@@ -121,7 +118,6 @@ fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
     history.push("/signIn"); // Redirect to the sign-in page
   })
   .catch((e) => {
-    console.log("errors", e);
     setLoading(false);
     setButtonText("Create Account"); // Reset button text
     setButtonColor("#2ddb81"); // Reset button color

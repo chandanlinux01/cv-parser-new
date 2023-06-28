@@ -257,52 +257,52 @@ function SignIn() {
           {/* Column 2 */}
 
           <Col
-            md={6}
-            style={{
-              backgroundColor: "#212221",
-              padding: "40px",
-              height: "100vh",
-              fontFamily: "Nunito Sans",
-            }}
-          >
-            <div
+          md={6}
+          style={{
+            backgroundColor: "#212221",
+            padding: "40px",
+            height: "100vh",
+            fontFamily: "Nunito Sans"
+
+          }}
+        >
+          <Form onSubmit={formik.handleSubmit}>
+            <Row
               style={{
-                border: "",
-                width: "70%",
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%,-50%)",
+                backgroundColor: "",
+                display: "flex",
+                justifyContent: "space-between",
               }}
             >
-              <Form onSubmit={formik.handleSubmit}>
-                {/* Email */}
+              {/* Email*/}
+              <Col sm={10} style={{ backgroundColor: "" }}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label style={{ color: "#fff", fontWeight: "bold" }}>
+                Email
+              </Form.Label>
+              <Form.Control
+                className="signin_form"
+                type="email"
+                placeholder="Enter email"
+                name="email"
+                onChange={formik.handleChange}
+                value={formik.values.email}
+                onBlur={formik.handleBlur}
+              />
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label style={{ color: "#fff", fontWeight: "bold" }}>
-                    Email
-                  </Form.Label>
-                  <Form.Control
-                    className="signin_form"
-                    type="email"
-                    placeholder="Enter email"
-                    name="email"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
-                    onBlur={formik.handleBlur}
-                  />
+              {formik.errors.email && formik.touched.email ? (
+                <span style={{ color: "red", fontSize: "13px" }}>
+                  {" "}
+                  {formik.errors.email}{" "}
+                </span>
+              ) : null}
+            </Form.Group>
 
-                  {formik.errors.email && formik.touched.email ? (
-                    <span style={{ color: "red", fontSize: "13px" }}>
-                      {" "}
-                      {formik.errors.email}{" "}
-                    </span>
-                  ) : null}
-                </Form.Group>
+              </Col>
 
-                {/* Password */}
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+              {/* Password*/}
+              <Col sm={10} style={{ backgroundColor: "" }}>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label style={{ color: "#fff", fontWeight: "bold" }}>
                     Password
                   </Form.Label>
@@ -332,40 +332,41 @@ function SignIn() {
                     </span>
                   ) : null}
                 </Form.Group>
+              </Col>
 
-                <Button
-                  variant="primary btn-block"
-                  type="submit"
-                  style={{
-                    backgroundColor: buttonColor, // Use button color state
-                    color: "#fff",
-                    border: "none",
-                    margin: "30px 0",
-                  }}
-                  disabled={loading} // Disable the button while loading
-                >
-                  {loading ? "Please wait..." : buttonText}{" "}
-                  {/* Use button text state */}
-                </Button>
 
-                {/* 
-                <GoogleLogin
-                  clientId="986930600127-u1qbih3n80r8qr720o2a77ja0hnouq3c.apps.googleusercontent.com"
-                  buttonText="Sign In With Google"
-                  onSuccess={responseGoogle}
-                  onFailure={responseGoogle}
-                  cookiePolicy={"single_host_origin"}
-                />
-                */}
-              </Form>
-              {/* 
-              <GoogleButton style={{width:'100%'}}
-                  onClick={googleSignIn}
-              />
-              */}
-            </div>
-        
-            </Col>
+              <Col sm={10}  style={{ backgroundColor: "" }}>
+              <Button
+              variant="primary"              
+              type="submit"
+              style={{
+                backgroundColor: buttonColor, // Use button color state
+                color: "#fff",
+                border: "none",
+                margin: "30px 0",
+                width:'100%',
+                textAlign:'center'
+              }}
+              disabled={loading} // Disable the button while loading
+            >
+              {loading ? "Please wait..." : buttonText}{" "}
+              {/* Use button text state */}
+            </Button>
+              </Col>
+          
+
+
+            </Row>
+
+       
+
+          
+      
+          </Form>
+       
+
+     
+          </Col>
         
         </Row>
       </Container>
