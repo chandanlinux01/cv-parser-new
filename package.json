@@ -4,9 +4,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.2",
     "@leecheuk/react-google-login": "^5.4.1",
-    "autoprefixer": "^10.4.5",
+  
     "axios": "^1.4.0",
-    "bootstrap": "4.6.0",
+    "bootstrap": "^5.2.0-beta1",
     "depcheck": "^1.4.3",
     "filepond": "^4.30.4",
     "filepond-plugin-file-validate-type": "^1.2.8",
