@@ -92,9 +92,7 @@ function Home({ authorized }) {
     history.push("/signin");
   };
 
-  const moveToSignUp = () => {
-    history.push("/signup");
-  };
+
 
   const userName = JSON.parse(localStorage.getItem("userName"));
 
@@ -104,7 +102,7 @@ function Home({ authorized }) {
         <div className="navigation_menu">
           <div className="header-main">
             <div className="logo">
-              <img src={logo} alt="" srcset="" width="150" height="150" />
+              <img src={logo} alt="" srcSet="" width="150" height="150" />
             </div>
 
             <div className="menu-overlay"></div>
@@ -375,23 +373,23 @@ function Home({ authorized }) {
                 autoplay={true}
                 nav
               >
-                <div class="item">
-                  <img src={owl_1} alt="" srcset="" height="350px" />
+                <div className="item">
+                  <img src={owl_1} alt="" srcSet="" height="350px" />
                 </div>
-                <div class="item">
-                  <img src={owl_2} alt="" srcset="" height="350px" />
+                <div className="item">
+                  <img src={owl_2} alt="" srcSet="" height="350px" />
                 </div>
-                <div class="item">
-                  <img src={owl_3} alt="" srcset="" height="350px" />
+                <div className="item">
+                  <img src={owl_3} alt="" srcSet="" height="350px" />
                 </div>
-                <div class="item">
-                  <img src={owl_1} alt="" srcset="" height="350px" />
+                <div className="item">
+                  <img src={owl_1} alt="" srcSet="" height="350px" />
                 </div>
-                <div class="item">
-                  <img src={owl_2} alt="" srcset="" height="350px" />
+                <div className="item">
+                  <img src={owl_2} alt="" srcSet="" height="350px" />
                 </div>
-                <div class="item">
-                  <img src={owl_3} alt="" srcset="" height="350px" />
+                <div className="item">
+                  <img src={owl_3} alt="" srcSet="" height="350px" />
                 </div>
                 -
               </OwlCarousel>
@@ -442,7 +440,7 @@ function Home({ authorized }) {
                 <img
                   src={logoss}
                   alt=""
-                  srcset=""
+                  srcSet=""
                   width="50"
                   style={{ borderRadius: "50px" }}
                 />
@@ -470,7 +468,7 @@ function Home({ authorized }) {
                 <img
                   src={logoss}
                   alt=""
-                  srcset=""
+                  srcSet=""
                   width="50"
                   style={{ borderRadius: "50px" }}
                 />
@@ -504,7 +502,7 @@ function Home({ authorized }) {
                 <img
                   src={logoss}
                   alt=""
-                  srcset=""
+                  srcSet=""
                   width="50"
                   style={{ borderRadius: "50px" }}
                 />
@@ -532,7 +530,7 @@ function Home({ authorized }) {
                 <img
                   src={logoss}
                   alt=""
-                  srcset=""
+                  srcSet=""
                   width="50"
                   style={{ borderRadius: "50px" }}
                 />
@@ -549,13 +547,13 @@ function Home({ authorized }) {
         <Container fluid>
           <div id="generic_price_table">
             <section className="home_section_4">
-              <div class="container">
-                <div class="row">
+              <div className="container">
+                <div className="row">
                   <div
                     className="col-md-12 wow animate__animated animate__fadeInUp"
                     data-wow-offset="150"
                   >
-                    <div class="section-head col-sm-12">
+                    <div className="section-head col-sm-12">
                       <h4>
                         <span>Our Affordable Plans </span>
                       </h4>
@@ -571,31 +569,31 @@ function Home({ authorized }) {
                   </div>
                 </div>
               </div>
-              <div class="container">
-                <div class="row">
+              <div className="container">
+                <div className="row">
                   <div
-                    class="col-lg-3 col-md-6 
+                    className="col-lg-3 col-md-6 
                   wow animate__animated animate__fadeInUp"
                     data-wow-offset="150"
                     data-wow-delay="0.2s"
                   >
-                    <div class="generic_content clearfix">
-                      <div class="generic_head_price clearfix">
-                        <div class="generic_head_content clearfix">
-                          <div class="head_bg"></div>
-                          <div class="head">
+                    <div className="generic_content clearfix">
+                      <div className="generic_head_price clearfix">
+                        <div className="generic_head_content clearfix">
+                          <div className="head_bg"></div>
+                          <div className="head">
                             <span>Starter</span>
                           </div>
                         </div>
 
-                        <div class="generic_price_tag clearfix">
-                          <span class="price">
-                            <span class="currency">FREE</span>
+                        <div className="generic_price_tag clearfix">
+                          <span className="price">
+                            <span className="currency">FREE</span>
                           </span>
                         </div>
                       </div>
 
-                      <div class="generic_feature_list">
+                      <div className="generic_feature_list">
                         <ul>
                           <li>
                             <FaCheckCircle className="pricing_icon" />{" "}
@@ -621,30 +619,30 @@ function Home({ authorized }) {
                         </ul>
                       </div>
 
-                      <div class="generic_price_btn clearfix">
-                        <Link onClick={moveToSignUp}>Get Starter Plan</Link>
+                      <div className="generic_price_btn clearfix">
+                        <Link to="/signup">Get Starter Plan</Link>
                       </div>
                     </div>
                   </div>
                   <div
-                    class="col-lg-3 col-md-6
+                    className="col-lg-3 col-md-6
                   wow animate__animated animate__fadeInUp"
                     data-wow-offset="150"
                     data-wow-delay="0.4s
                   "
                   >
-                    <div class="generic_content active clearfix">
-                      <div class="generic_head_price clearfix">
-                        <div class="generic_head_content clearfix">
-                          <div class="head_bg"></div>
-                          <div class="head">
+                    <div className="generic_content active clearfix">
+                      <div className="generic_head_price clearfix">
+                        <div className="generic_head_content clearfix">
+                          <div className="head_bg"></div>
+                          <div className="head">
                             <span> Essential</span>
                           </div>
                         </div>
 
-                        <div class="generic_price_tag clearfix">
-                          <span class="price">
-                            <span class="currency">
+                        <div className="generic_price_tag clearfix">
+                          <span className="price">
+                            <span className="currency">
                               $ 48.90 /{" "}
                               <span style={{ color: "#405cf5" }}>Month</span>{" "}
                             </span>
@@ -652,7 +650,7 @@ function Home({ authorized }) {
                         </div>
                       </div>
 
-                      <div class="generic_feature_list">
+                      <div className="generic_feature_list">
                         <ul>
                           <li>
                             <FaCheckCircle className="pricing_icon" />{" "}
@@ -684,30 +682,30 @@ function Home({ authorized }) {
                         </ul>
                       </div>
 
-                      <div class="generic_price_btn clearfix">
-                        <Link onClick={moveToSignUp}>Get Essential Plan</Link>
+                      <div className="generic_price_btn clearfix">
+                        <Link to="/signup" >Get Essential Plan</Link>
                       </div>
                     </div>
                   </div>
                   <div
-                    class="col-lg-3 col-md-6
+                    className="col-lg-3 col-md-6
                   wow animate__animated animate__fadeInUp"
                     data-wow-offset="150"
                     data-wow-delay="0.6s
                   "
                   >
-                    <div class="generic_content clearfix">
-                      <div class="generic_head_price clearfix">
-                        <div class="generic_head_content clearfix">
-                          <div class="head_bg"></div>
-                          <div class="head">
+                    <div className="generic_content clearfix">
+                      <div className="generic_head_price clearfix">
+                        <div className="generic_head_content clearfix">
+                          <div className="head_bg"></div>
+                          <div className="head">
                             <span>Pro</span>
                           </div>
                         </div>
 
-                        <div class="generic_price_tag clearfix">
-                          <span class="price">
-                            <span class="currency">
+                        <div className="generic_price_tag clearfix">
+                          <span className="price">
+                            <span className="currency">
                               $ 87.90 /{" "}
                               <span style={{ color: "#405cf5" }}>Month</span>{" "}
                             </span>
@@ -715,7 +713,7 @@ function Home({ authorized }) {
                         </div>
                       </div>
 
-                      <div class="generic_feature_list">
+                      <div className="generic_feature_list">
                         <ul>
                           <li>
                             <FaCheckCircle className="pricing_icon" />{" "}
@@ -743,31 +741,31 @@ function Home({ authorized }) {
                         </ul>
                       </div>
 
-                      <div class="generic_price_btn clearfix">
-                        <Link onClick={moveToSignUp}>Get Pro Plan</Link>
+                      <div className="generic_price_btn clearfix">
+                        <Link to="/signup">Get Pro Plan</Link>
                       </div>
                     </div>
                   </div>
 
                   <div
-                    class="col-lg-3 col-md-6
+                    className="col-lg-3 col-md-6
                   wow animate__animated animate__fadeInUp"
                     data-wow-offset="150"
                     data-wow-delay="0.8s
                   "
                   >
-                    <div class="generic_content active clearfix">
-                      <div class="generic_head_price clearfix">
-                        <div class="generic_head_content clearfix">
-                          <div class="head_bg"></div>
-                          <div class="head">
+                    <div className="generic_content active clearfix">
+                      <div className="generic_head_price clearfix">
+                        <div className="generic_head_content clearfix">
+                          <div className="head_bg"></div>
+                          <div className="head">
                             <span>Ultimate</span>
                           </div>
                         </div>
 
-                        <div class="generic_price_tag clearfix">
-                          <span class="price">
-                            <span class="currency">
+                        <div className="generic_price_tag clearfix">
+                          <span className="price">
+                            <span className="currency">
                               $ 99.90 /{" "}
                               <span style={{ color: "#405cf5" }}>Month</span>{" "}
                             </span>
@@ -775,7 +773,7 @@ function Home({ authorized }) {
                         </div>
                       </div>
 
-                      <div class="generic_feature_list">
+                      <div className="generic_feature_list">
                         <ul>
                           <li>
                             <FaCheckCircle className="pricing_icon" />{" "}
@@ -803,8 +801,8 @@ function Home({ authorized }) {
                         </ul>
                       </div>
 
-                      <div class="generic_price_btn clearfix">
-                        <Link onClick={moveToSignUp}>Get Ultimate Plan</Link>
+                      <div className="generic_price_btn clearfix">
+                        <Link to="/signup">Get Ultimate Plan</Link>
                       </div>
                     </div>
                   </div>
@@ -817,11 +815,11 @@ function Home({ authorized }) {
         {/* Save Time and Money*/}
 
         <Container>
-          <div class="pt-5 pb-5">
-            <div class="container">
-              <div class="row">
+          <div className="pt-5 pb-5">
+            <div className="container">
+              <div className="row">
                 <div
-                  class="section-head col-sm-12 wow animate__animated animate__fadeInUp"
+                  className="section-head col-sm-12 wow animate__animated animate__fadeInUp"
                   data-wow-offset="150"
                 >
                   <h4>
@@ -836,14 +834,14 @@ function Home({ authorized }) {
                   </p>
                 </div>
                 <div
-                  class="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
+                  className="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
                   data-wow-offset="150"
                   data-wow-delay="0.4s"
                 >
-                  <div class="save_time_card">
+                  <div className="save_time_card">
                     {" "}
-                    <span class="icon feature_box_col_one">
-                      <i class="fa-solid fa-clock"></i>
+                    <span className="icon feature_box_col_one">
+                      <i className="fa-solid fa-clock"></i>
                     </span>
                     <h6>Save Time</h6>
                     <p>
@@ -853,14 +851,14 @@ function Home({ authorized }) {
                   </div>
                 </div>
                 <div
-                  class="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
+                  className="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
                   data-wow-offset="150"
                   data-wow-delay="0.6s"
                 >
-                  <div class="save_time_card">
+                  <div className="save_time_card">
                     {" "}
-                    <span class="icon feature_box_col_two">
-                      <i class="fa-solid fa-dollar"></i>
+                    <span className="icon feature_box_col_two">
+                      <i className="fa-solid fa-dollar"></i>
                     </span>
                     <h6>Save Money</h6>
                     <p>
@@ -870,14 +868,14 @@ function Home({ authorized }) {
                   </div>
                 </div>
                 <div
-                  class="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
+                  className="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
                   data-wow-offset="150"
                   data-wow-delay="0.8s"
                 >
-                  <div class="save_time_card">
+                  <div className="save_time_card">
                     {" "}
-                    <span class="icon feature_box_col_three">
-                      <i class="fa-solid fa-circle-xmark"></i>
+                    <span className="icon feature_box_col_three">
+                      <i className="fa-solid fa-circle-xmark"></i>
                     </span>
                     <h6>No Errors</h6>
                     <p>
