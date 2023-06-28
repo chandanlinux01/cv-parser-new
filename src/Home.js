@@ -17,7 +17,6 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import cvParser from "./assets/img/cutter_3.png";
 import logo from "./assets/img/profileGenerator.png";
-
 function Home({ authorized }) {
   const history = useHistory();
   useEffect(() => {
