@@ -160,7 +160,7 @@ fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
             <img
               src={site}
               alt=""
-              srcset=""
+              srcSet=""
               width="150"
               style={{ marginLeft: "50px",marginTop:'-50px' }}
             />
@@ -387,19 +387,15 @@ fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
                 </Col>
               </Row>
 
-              <Button
-              variant="primary btn-block"
-              type="submit"
-              style={{
-                backgroundColor: buttonColor, // Use button color state
-                color: "#fff",
-                border: "none",
-                margin: "30px 0",
-              }}
-              disabled={loading} // Disable the button while loading
-            >
-              {loading ? "Please wait..." : buttonText} {/* Use button text state */}
-            </Button>
+          
+
+            <button
+            className="home_navigation_getDemo2"
+            type="submit"
+            disabled={loading} // Disable the button while loading
+          >
+            {loading ? "Please wait..." : buttonText}{" "}
+          </button>
 
           {/* 
               <GoogleLogin

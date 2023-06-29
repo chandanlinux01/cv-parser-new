@@ -83,7 +83,7 @@ function Sidebar({ color, image, routes }) {
         <img
           src={logo}
           alt=""
-          srcset=""
+          srcSet=""
           style={{ width: "40px", borderRadius: "50px", backgroundColor:'' }}
         />
       </div>

@@ -46,7 +46,6 @@ function MyVerticallyCenteredModal(props) {
       .then((response) => response.json())
       .then((data) => {
        
-        // console.log("data is", data);
         const responseURL = data.url;
         data.message == ""
           ? toast.success(data.message)
@@ -60,7 +59,6 @@ function MyVerticallyCenteredModal(props) {
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
         setstarter(false); // Stop loader if there's an error
       });
 
@@ -106,7 +104,6 @@ function MyVerticallyCenteredModal(props) {
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
         setEssential(false); // Stop loader if there's an error
       });
   };
@@ -115,7 +112,6 @@ function MyVerticallyCenteredModal(props) {
   const [pro, setPro] = useState(false);
   const proPlan = () => {
     let store = JSON.parse(localStorage.getItem("login"));
-    console.log("token", store);
     let authToken = store.token;
 
     const url = `${process.env.REACT_APP_BASE_URL}pro`; // Replace with your API endpoint
@@ -138,7 +134,6 @@ function MyVerticallyCenteredModal(props) {
     fetch(url, requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        // console.log('pro',data);
         const responseURL = data.url;
         if (responseURL) {
           setTimeout(() => {
@@ -148,7 +143,6 @@ function MyVerticallyCenteredModal(props) {
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
         setPro(false); // Stop loader if there's an error
       });
   };
@@ -187,7 +181,6 @@ function MyVerticallyCenteredModal(props) {
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
         setUltimate(false); // Stop loader if there's an error
       });
   };
@@ -237,7 +230,7 @@ function MyVerticallyCenteredModal(props) {
                   variant="primary"
                   disabled={starter}
                 >
-                  {starter ? "Upgrade " : "Upgrade Starter"}
+                  {starter ? "Upgrade " : "Upgrade"}
                 </Button>{" "}
               </div>
             </div>
@@ -303,7 +296,7 @@ function MyVerticallyCenteredModal(props) {
                   variant="primary"
                   disabled={pro}
                 >
-                  {pro ? "Please wait..." : "Upgrade Pro"}
+                  {pro ? "Please wait..." : "Upgrade"}
                 </Button>{" "}
               </div>
             </div>
@@ -388,11 +381,9 @@ function Header() {
       .then((response) => response.json())
       .then((data) => {
         setPlandetails(data)
-        // console.log(data);
       
       })
       .catch((error) => {
-        console.error("Error:", error);
       });
   
  }
@@ -428,8 +419,8 @@ function Header() {
   };
 
   return (
-    <Navbar bg="dark" expand="lg">
-      <Container fluid>
+    <Navbar bg="dark" expand="lg" >
+      <Container fluid style={{backgroundColor:''}}>
         <div className="d-flex justify-content-center align-items-center ml-2 ml-lg-0">
           <Button
             variant="dark"
@@ -443,7 +434,7 @@ function Header() {
 
           <div className="navbar_text">
             <h4>
-              Welcome back, {username && username.fname ? username.fname : ""}
+              Welcome back,  {username && username.fname ? username.fname : ""}
             </h4>
             <p>Hey,What's happening!</p>
           </div>
@@ -461,6 +452,7 @@ function Header() {
               backgroundColor: "",
               display: "flex",
               alignItems: "center",
+              marginLeft:'auto'
             }}
           >
           
@@ -474,18 +466,19 @@ function Header() {
               </Nav.Link>
             </Nav.Item>
 
-            <Button
-              type="submit"
-              onClick={() => setModalShow(true)}
-              className="generate_my_profile"
-            >
-              Upgrade Plan
-            </Button>
+            <Nav.Item>
+           
+            <button
+             className="home_navigation_getDemo2"
+             type="submit"
+              onClick={() => setModalShow(true)}>
+                 Upgrade Plan</button>
+            
             <MyVerticallyCenteredModal
               show={modalShow}
               onHide={() => setModalShow(false)}
             />
-        
+            </Nav.Item>
             <Nav.Item>
               <Dropdown as={Nav.Item}>
                 <Dropdown.Toggle
@@ -498,7 +491,7 @@ function Header() {
                   <img
                     src={logo}
                     alt=""
-                    srcset=""
+                    srcSet=""
                     style={{ width: "30px", borderRadius: "30px" }}
                   />
 
@@ -507,7 +500,7 @@ function Header() {
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu-right">
                   <Dropdown.Item>
-                    <Link to="/forgot-password" style={{ color: "#333333" }}>
+                    <Link to="/forgot-password" style={{ color: "#333333", textDecoration:'none' }}>
                       Reset Password
                     </Link>
                   </Dropdown.Item>
@@ -518,7 +511,10 @@ function Header() {
                 </Dropdown.Menu>
               </Dropdown>
             </Nav.Item>
+
+            
           </Nav>
+     
         </Navbar.Collapse>
       </Container>
     </Navbar>

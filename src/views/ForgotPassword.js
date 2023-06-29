@@ -124,17 +124,19 @@ function ForgotPassword() {
                   </span>
                 ) : null}
               </Form.Group>
-              <Button
-                style={{
-                  width: "100%",
-                  backgroundColor: resetButtonProps.color,
-                }}
-                type="submit"
-                className="generate_my_profile"
-                disabled={isLoading || resetButtonProps.color !== null}
-              >
-                {isLoading ? "Loading..." : resetButtonProps.text}
-              </Button>
+            
+              
+            <button
+            className="home_navigation_getDemo2"
+            type="submit"
+            style={{
+              backgroundColor: resetButtonProps.color,
+            }}
+            disabled={isLoading || resetButtonProps.color !== null}
+
+            >
+            {isLoading ? "Loading..." : resetButtonProps.text}
+            </button>
             </Form>
           </Col>
         </Row>
