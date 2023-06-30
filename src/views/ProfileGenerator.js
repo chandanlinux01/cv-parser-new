@@ -344,15 +344,14 @@ async function getDataFromAPI(){
               />
             </Col>
           </Row>
-          <div className="text-center" style={{padding:'0 10px'}}>
-       
-            
-
-            <button
-            className="home_navigation_getDemo2"
-            type="submit"
-            >
-                Generate My Profile</button>
+          <div className=" text-center">
+            {/*  <button variant="success" style={{ marginTop: "10px" }} type="submit">
+        SUBMIT
+      </button>
+*/}
+            <Button type="submit" className="generate_my_profile">
+              Generate My Profile
+            </Button>{" "}
           </div>
         </form>
       </Container>

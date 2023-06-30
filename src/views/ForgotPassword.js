@@ -23,7 +23,6 @@ function ForgotPassword() {
     initialValues: formInitialValues,
     validationSchema: forgetSchema,
     onSubmit: (values, action) => {
-      console.log("forgot", values);
       setIsLoading(true);
 
       const user = {
@@ -53,7 +52,6 @@ function ForgotPassword() {
         })
         .then((data) => {})
         .catch((e) => {
-          console.log("errors", e);
         });
       action.resetForm();
     },
@@ -124,19 +122,17 @@ function ForgotPassword() {
                   </span>
                 ) : null}
               </Form.Group>
-            
-              
-            <button
-            className="home_navigation_getDemo2"
-            type="submit"
-            style={{
-              backgroundColor: resetButtonProps.color,
-            }}
-            disabled={isLoading || resetButtonProps.color !== null}
 
-            >
-            {isLoading ? "Loading..." : resetButtonProps.text}
-            </button>
+              <button
+                className="home_navigation_getDemo2"
+                type="submit"
+                style={{
+                  backgroundColor: resetButtonProps.color,
+                }}
+                disabled={isLoading || resetButtonProps.color !== null}
+              >
+                {isLoading ? "Loading..." : resetButtonProps.text}
+              </button>
             </Form>
           </Col>
         </Row>

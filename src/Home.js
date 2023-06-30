@@ -92,8 +92,6 @@ function Home({ authorized }) {
     history.push("/signin");
   };
 
-
-
   const userName = JSON.parse(localStorage.getItem("userName"));
 
   return (
@@ -137,11 +135,9 @@ function Home({ authorized }) {
             </nav>
 
             <div className="home_navigation_btn">
-              {/* Button 1 */}
 
               <button className="home_navigation_getDemo">Get Started</button>
 
-              {/* Button 2 */}
               <button className="home_navigation_signIn" onClick={moveToSignIn}>
                 {userName ? "Dashboard" : "Sign In"}
               </button>
@@ -683,7 +679,7 @@ function Home({ authorized }) {
                       </div>
 
                       <div className="generic_price_btn clearfix">
-                        <Link to="/signup" >Get Essential Plan</Link>
+                        <Link to="/signup">Get Essential Plan</Link>
                       </div>
                     </div>
                   </div>

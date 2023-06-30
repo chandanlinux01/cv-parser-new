@@ -158,7 +158,6 @@ function SignIn() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("data", data);
         if (data.access) {
           toast.success("Success Notification !");
           history.push("/admin/dashboard ");
@@ -264,100 +263,99 @@ function SignIn() {
               padding: "40px",
               height: "100vh",
               fontFamily: "Nunito Sans",
-              position:'relative'
+              position: "relative",
             }}
           >
+            <div
+              style={{
+                border: "",
+                width: "70%",
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%,-50%)",
+              }}
+            >
+              <Form onSubmit={formik.handleSubmit}>
+                <Row
+                  style={{
+                    backgroundColor: "",
+                    display: "flex",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {/* Email*/}
+                  <Col sm={10} style={{ backgroundColor: "" }}>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label style={{ color: "#fff", fontWeight: "bold" }}>
+                        Email
+                      </Form.Label>
+                      <Form.Control
+                        className="signin_form"
+                        type="email"
+                        placeholder="Enter email"
+                        name="email"
+                        onChange={formik.handleChange}
+                        value={formik.values.email}
+                        onBlur={formik.handleBlur}
+                      />
 
-          <div
-          style={{
-            border: "",
-            width: "70%",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
-          }}
-        >
-            <Form onSubmit={formik.handleSubmit}>
-              <Row
-                style={{
-                  backgroundColor: "",
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                {/* Email*/}
-                <Col sm={10} style={{ backgroundColor: "" }}>
-                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label style={{ color: "#fff", fontWeight: "bold" }}>
-                      Email
-                    </Form.Label>
-                    <Form.Control
-                      className="signin_form"
-                      type="email"
-                      placeholder="Enter email"
-                      name="email"
-                      onChange={formik.handleChange}
-                      value={formik.values.email}
-                      onBlur={formik.handleBlur}
-                    />
+                      {formik.errors.email && formik.touched.email ? (
+                        <span style={{ color: "red", fontSize: "13px" }}>
+                          {" "}
+                          {formik.errors.email}{" "}
+                        </span>
+                      ) : null}
+                    </Form.Group>
+                  </Col>
 
-                    {formik.errors.email && formik.touched.email ? (
-                      <span style={{ color: "red", fontSize: "13px" }}>
-                        {" "}
-                        {formik.errors.email}{" "}
-                      </span>
-                    ) : null}
-                  </Form.Group>
-                </Col>
-
-                {/* Password*/}
-                <Col sm={10} style={{ backgroundColor: "" }}>
-                  <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label style={{ color: "#fff", fontWeight: "bold" }}>
-                      Password
-                    </Form.Label>
-                    <Form.Control
-                      className="signin_form"
-                      type="password"
-                      placeholder="Enter Password...."
-                      name="password"
-                      onChange={formik.handleChange}
-                      value={formik.values.password}
-                      onBlur={formik.handleBlur}
-                    />
-                    <div
-                      style={{ display: "flex", justifyContent: "flex-end" }}
-                    >
-                      <Link
-                        style={{ color: "gray", fontFamily: "Nunito Sans" }}
-                        to="/forgot-password"
+                  {/* Password*/}
+                  <Col sm={10} style={{ backgroundColor: "" }}>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Label style={{ color: "#fff", fontWeight: "bold" }}>
+                        Password
+                      </Form.Label>
+                      <Form.Control
+                        className="signin_form"
+                        type="password"
+                        placeholder="Enter Password...."
+                        name="password"
+                        onChange={formik.handleChange}
+                        value={formik.values.password}
+                        onBlur={formik.handleBlur}
+                      />
+                      <div
+                        style={{ display: "flex", justifyContent: "flex-end" }}
                       >
-                        {" "}
-                        Forgot Password ?{" "}
-                      </Link>
-                    </div>
+                        <Link
+                          style={{ color: "gray", fontFamily: "Nunito Sans" }}
+                          to="/forgot-password"
+                        >
+                          {" "}
+                          Forgot Password ?{" "}
+                        </Link>
+                      </div>
 
-                    {formik.errors.password && formik.touched.password ? (
-                      <span style={{ color: "red", fontSize: "13px" }}>
-                        {" "}
-                        {formik.errors.password}{" "}
-                      </span>
-                    ) : null}
-                  </Form.Group>
-                </Col>
+                      {formik.errors.password && formik.touched.password ? (
+                        <span style={{ color: "red", fontSize: "13px" }}>
+                          {" "}
+                          {formik.errors.password}{" "}
+                        </span>
+                      ) : null}
+                    </Form.Group>
+                  </Col>
 
-                <Col sm={10} style={{ backgroundColor: "" }}>
-                  <button
-                    className="home_navigation_getDemo2"
-                    type="submit"
-                    disabled={loading} // Disable the button while loading
-                  >
-                    {loading ? "Please wait..." : buttonText}{" "}
-                  </button>
-                </Col>
-              </Row>
-            </Form>
+                  <Col sm={10} style={{ backgroundColor: "" }}>
+                    <button
+                      className="home_navigation_getDemo2"
+                      type="submit"
+                      disabled={loading} // Disable the button while loading
+                    >
+                      {loading ? "Please wait..." : buttonText}{" "}
+                    </button>
+                  </Col>
+                </Row>
+              </Form>
             </div>
           </Col>
         </Row>

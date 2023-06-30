@@ -17,8 +17,6 @@ import {
 } from "react-bootstrap";
 import DataTable, { createTheme } from "react-data-table-component";
 import Loader from "./Loader";
-
-// createTheme creates a new theme named solarized that overrides the build in dark theme
 createTheme(
   "solarized",
   {
@@ -46,10 +44,8 @@ createTheme(
 );
 
 const resumeData = moment().format(" hh:mm: p");
-// console.log('aa',resumeData);
 
 function SavedResume() {
-  // Loadaing for Table
   const [pending, setPending] = React.useState(true);
   const [rows, setRows] = React.useState([]);
   React.useEffect(() => {
@@ -60,13 +56,10 @@ function SavedResume() {
     return () => clearTimeout(timeout);
   }, []);
 
-  // const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   useEffect(() => {
     const loadResume = async () => {
-      // setLoading(true);
       let store = JSON.parse(localStorage.getItem("login"));
-      // console.log('store is', store);
       axios({
         url: `${process.env.REACT_APP_BASE_URL}userresume/`,
         method: "get",
@@ -77,7 +70,6 @@ function SavedResume() {
         },
       })
         .then((response) => {
-          console.log('data',response)
           if (Array.isArray(response.data.data)) {
             setData(response.data.data);
           } else {
@@ -115,8 +107,7 @@ function SavedResume() {
       selector: (row) => row.my_date_field,
       format: (row) => moment(row.my_date_field).format("YYYY-MM-DD, h:mm a"),
     },
-  
-   
+
     {
       name: "English",
       cell: (row) => (
@@ -150,11 +141,9 @@ function SavedResume() {
       ),
     },
   ];
-  // console.log('my_date_field' ,my_date_field);
 
   // Download For English
   const downloadCv = (id) => {
-    console.log("id is", id);
     let store = JSON.parse(localStorage.getItem("login"));
     let authToken = store.token;
     var myHeaders = new Headers();
@@ -195,7 +184,6 @@ function SavedResume() {
 
   // Download For German
   const downloadGermna = (id) => {
-    console.log("id is", id);
     let store = JSON.parse(localStorage.getItem("login"));
     let authToken = store.token;
     var myHeaders = new Headers();

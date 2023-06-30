@@ -1,8 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
-
-
-// react-bootstrap components
 import {
   Badge,
   Button,
@@ -13,7 +10,6 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
-// File Pond
 import { FilePond, registerPlugin } from "./react-filepond";
 import "filepond/dist/filepond.min.css";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
@@ -30,9 +26,7 @@ function Template() {
   const [company, setCompany] = useState('')
   const [website, setWebsite] = useState('')
 
-  // console.log("file is", files);
   useEffect(() => {
-    // console.log("FilePond instance has initialized", pondRef.current);
   }, []);
 
 
@@ -54,7 +48,6 @@ function Template() {
     website: website,
   };
   
-  // console.log('file is',files);
     // Add the new form data to the existing data array
     // const updatedData = [...storedData, formData];
 

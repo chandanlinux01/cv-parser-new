@@ -16,64 +16,50 @@ import { useEffect } from "react";
 // import GoogleLogin from '@leecheuk/react-google-login';
 import { ToastContainer, toast } from "react-toastify";
 
-
-
 function SignUp() {
   const [loading, setLoading] = useState(false);
   const [buttonText, setButtonText] = useState("Create Account"); // Add button text state
   const [buttonColor, setButtonColor] = useState("#405cf5"); // Add button color state
-//History
-let history = useHistory();
+  let history = useHistory();
+  const responseGoogle = (response) => {
+    const user = {
+      first_name: response.profileObj.givenName,
+      last_name: response.profileObj.familyName,
+      username: "",
+      email: response.profileObj.email,
+      password: "Aish@123",
+      password1: "Aish@123",
+    };
 
-
-// 
-
-const responseGoogle = (response) => {
-    
-  const user = {
-    first_name: response.profileObj.givenName,
-    last_name: response.profileObj.familyName,
-    username: '',
-    email: response.profileObj.email,
-    password: 'Aish@123',
-    password1: 'Aish@123'
-    
+    fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((response) => response.json())
+      .then((data) => {})
+      .catch((e) => {});
+    localStorage.setItem(
+      "login",
+      JSON.stringify({
+        login: true,
+        token: response.accessToken,
+      })
+    );
+    localStorage.setItem(
+      "userName",
+      JSON.stringify({
+        fname: response.profileObj.name,
+        email: response.profileObj.email,
+      })
+    );
+    if (response.accessToken) {
+      toast.success("Success Notification !");
+      history.push("/admin/profile-generator");
+    }
   };
-
-  fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(user),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-    })
-    .catch((e) => {
-    });
-  localStorage.setItem(
-    "login",
-    JSON.stringify({
-      login: true,
-      token: response.accessToken,
-    })
-  );
-  localStorage.setItem(
-    "userName",
-    JSON.stringify({
-      fname: response.profileObj.name,
-      email: response.profileObj.email
-    })
-  );
-  if (response.accessToken) {
-    toast.success("Success Notification !");
-    history.push("/admin/profile-generator");
-  }
-
-}
-
-
 
   // using Formik
   const formInitialValues = {
@@ -82,13 +68,13 @@ const responseGoogle = (response) => {
     username: "",
     email: "",
     password: "",
-    password1: ""
+    password1: "",
   };
 
   const formik = useFormik({
     initialValues: formInitialValues,
     validationSchema: SignUpSchema,
-    onSubmit: (values,action) => {
+    onSubmit: (values, action) => {
       setLoading(true);
       setButtonText("Please wait"); // Update button text
       setButtonColor("#ccc"); // Update button color
@@ -99,35 +85,30 @@ const responseGoogle = (response) => {
         email: values.email,
         password: values.password,
         password1: values.password1,
-        
       };
-        
-// Fetch Api for Register
-fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(user),
-})
-  .then((response) => response.json())
-  .then((data) => {
-    setLoading(false);
-    setButtonText("Create Account"); // Reset button text
-    setButtonColor("#2ddb81"); // Reset button color
-    history.push("/signIn"); // Redirect to the sign-in page
-  })
-  .catch((e) => {
-    setLoading(false);
-    setButtonText("Create Account"); // Reset button text
-    setButtonColor("#2ddb81"); // Reset button color
-  });
 
-
-     
+      // Fetch Api for Register
+      fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setLoading(false);
+          setButtonText("Create Account"); // Reset button text
+          setButtonColor("#2ddb81"); // Reset button color
+          history.push("/signIn"); // Redirect to the sign-in page
+        })
+        .catch((e) => {
+          setLoading(false);
+          setButtonText("Create Account"); // Reset button text
+          setButtonColor("#2ddb81"); // Reset button color
+        });
     },
   });
-
 
   return (
     <>
@@ -135,18 +116,18 @@ fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
         fluid
         style={{ backgroundColor: "", height: "100vh", padding: "0px" }}
       >
-      <ToastContainer
-      position="top-center"
-      autoClose={5000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-      theme="light"
-    />
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         <Row style={{ backgroundColor: "" }}>
           <Col
             md={6}
@@ -162,7 +143,7 @@ fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
               alt=""
               srcSet=""
               width="150"
-              style={{ marginLeft: "50px",marginTop:'-50px' }}
+              style={{ marginLeft: "50px", marginTop: "-50px" }}
             />
 
             <div
@@ -175,26 +156,22 @@ fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
                 transform: "translate(-50%,-50%)",
               }}
             >
-            <h1
-            style={{
-              fontWeight: "800",
-              fontFamily: "Nunito Sans",
-              color: "#fff",
-            }}
-          >
-            Get started with <br /> ProfileGenerator....{" "}
-          </h1>
-          <p
-            style={{ color: "gray", margin: "30px 0", fontWeight: "bold" }}
-          >
-            Join hundreds of job seekers who use Profile Generator to submit better
-            job applications in seconds—not hours.
-          </p>
+              <h1
+                style={{
+                  fontWeight: "800",
+                  fontFamily: "Nunito Sans",
+                  color: "#fff",
+                }}
+              >
+                Get started with <br /> ProfileGenerator....{" "}
+              </h1>
+              <p
+                style={{ color: "gray", margin: "30px 0", fontWeight: "bold" }}
+              >
+                Join hundreds of job seekers who use Profile Generator to submit
+                better job applications in seconds—not hours.
+              </p>
 
-
-
-
-          
               <p style={{ color: "gray", fontWeight: "bold" }}>
                 Already have an account?{" "}
                 <span
@@ -204,7 +181,10 @@ fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
                     cursor: "pointer",
                   }}
                 >
-                  <Link to="/signin" className='sign_up_link'> Sign In </Link>
+                  <Link to="/signin" className="sign_up_link">
+                    {" "}
+                    Sign In{" "}
+                  </Link>
                 </span>{" "}
               </p>
             </div>
@@ -218,8 +198,7 @@ fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
               backgroundColor: "#212221",
               padding: "40px",
               height: "100vh",
-              fontFamily: "Nunito Sans"
-
+              fontFamily: "Nunito Sans",
             }}
           >
             <Form onSubmit={formik.handleSubmit}>
@@ -382,22 +361,18 @@ fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
                   </Form.Group>
                 </Col>
 
-                <Col>
-               
-                </Col>
+                <Col></Col>
               </Row>
 
-          
+              <button
+                className="home_navigation_getDemo2"
+                type="submit"
+                disabled={loading} // Disable the button while loading
+              >
+                {loading ? "Please wait..." : buttonText}{" "}
+              </button>
 
-            <button
-            className="home_navigation_getDemo2"
-            type="submit"
-            disabled={loading} // Disable the button while loading
-          >
-            {loading ? "Please wait..." : buttonText}{" "}
-          </button>
-
-          {/* 
+              {/* 
               <GoogleLogin
               clientId="986930600127-u1qbih3n80r8qr720o2a77ja0hnouq3c.apps.googleusercontent.com"
               buttonText="Sign Up With Google"
@@ -406,10 +381,7 @@ fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
               cookiePolicy={'single_host_origin'}
             />
             */}
-            
-        
             </Form>
-         
 
             <p
               style={{
@@ -423,8 +395,6 @@ fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
             </p>
           </Col>
         </Row>
-
-   
       </Container>
     </>
   );
