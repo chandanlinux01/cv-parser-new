@@ -45,41 +45,12 @@ function ProfileGenerator() {
   const storedCompany = localStorage.removeItem("company");
     const storedWebsite = localStorage.removeItem("website");
     const storedPhone = localStorage.removeItem("phone");
-  // useEffect(() => {
-  //   const storedCompany = localStorage.getItem("company");
-  //   const storedWebsite = localStorage.getItem("website");
-  //   const storedPhone = localStorage.getItem("phone");
 
-  //   if (storedCompany) {
-  //     setCompany(storedCompany);
-  //   }
-  //   if (storedWebsite) {
-  //     setWebsite(storedWebsite);
-  //   }
-  //   if (storedPhone) {
-  //     setPhone(storedPhone);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("company", company);
-  // }, [company]);
-
-  // useEffect(() => {
-  //   localStorage.setItem("website", website);
-  // }, [website]);
-
-  // useEffect(() => {
-  //   localStorage.setItem("phone", phone);
-  // }, [phone]);
 
   const [loading, setLoading] = useState(false); // Add loading state
-  // console.log('logo is',files2[0]);
 
-  // Location
   const location = useLocation();
   const firstName = location.state?.firstName;
-  // console.log('testing', firstName);
 
   //Use History
   let history = useHistory();
@@ -127,8 +98,9 @@ function ProfileGenerator() {
 
 
       if (response.ok) {
+        console.log("result is", response);
+
         const result = await response.json();
-        // console.log("result is", result);
         if (result.success) {
           toast.success("File uploaded successfully", {
             position: toast.POSITION.TOP_CENTER,
@@ -223,7 +195,7 @@ async function getDataFromAPI(){
                 }}
                 onupdatefiles={handleUpdateFiles}
                 labelIdle={
-                  '<div><span class="filepond--label-action">Drop Down Your CV </span><br/><span class="custom-icon"><i class="fa-sharp fa-regular fa-file-pdf"></i></span></div>'
+                  '<div><span className="filepond--label-action">Drop Down Your CV </span><br/><span className="custom-icon"><i class="fa-sharp fa-regular fa-file-pdf"></i></span></div>'
                 }
               />
             </Col>
@@ -247,11 +219,11 @@ async function getDataFromAPI(){
               className=""
               style={{ backgroundColor: "", paddingLeft: "10px" }}
             >
-              <div class="input-field">
+              <div className="input-field">
                 <input
                   type="text"
                   required
-                  spellcheck="false"
+                  spellCheck="false"
                   name="company_name"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
@@ -264,11 +236,11 @@ async function getDataFromAPI(){
             {/* Website Name Starts*/}
 
             <Col style={{ backgroundColor: "", paddingRight: "10px" }}>
-              <div class="input-field">
+              <div className="input-field">
                 <input
                   type="text"
                   required
-                  spellcheck="false"
+                  spellCheck="false"
                   name="officialy_company_website"
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
@@ -285,11 +257,11 @@ async function getDataFromAPI(){
               className=""
               style={{ backgroundColor: "", paddingLeft: "10px" }}
             >
-              <div class="input-field">
+              <div className="input-field">
                 <input
                   type="text"
                   required
-                  spellcheck="false"
+                  spellCheck="false"
                   name="phone_no"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
@@ -339,7 +311,7 @@ async function getDataFromAPI(){
                 acceptedFileTypes={"image/png"}
                 acceptedFileExtensions={[".jpg", ".jpeg", ".png", ".gif"]}
                 labelIdle={
-                  '<div><span class="filepond--label-action">Upload Your Template Logo</span><br/><span class="custom-icon"><i class="fa-regular fa-image"></i></span></div>'
+                  '<div><span className="filepond--label-action">Upload Your Template Logo</span><br/><span className="custom-icon"><i className="fa-regular fa-image"></i></span></div>'
                 }
               />
             </Col>

@@ -28,6 +28,7 @@ root.render(
       <Route path="/forgot-password" render={(props) => <ForgotPassword />} />
       <Route path="/password-reset" render={(props) => <ResetPassword />} />
       <Route path="/admin" render={(props) => <ProtectedRout Component={AdminLayout }/> } />
+      <Route component={Error} />
     </Switch>
   </Router>
 

@@ -17,8 +17,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Modal from "react-bootstrap/Modal";
 
 function MyVerticallyCenteredModal(props) {
-
-
   //Starter Plan
   const [starter, setstarter] = useState(false);
   const starterPlan = () => {
@@ -45,7 +43,6 @@ function MyVerticallyCenteredModal(props) {
     fetch(url, requestOptions)
       .then((response) => response.json())
       .then((data) => {
-       
         const responseURL = data.url;
         data.message == ""
           ? toast.success(data.message)
@@ -62,11 +59,10 @@ function MyVerticallyCenteredModal(props) {
         setstarter(false); // Stop loader if there's an error
       });
 
-      // Hide Modal After Clicking On Buy Starter Plan Button
-      setTimeout(()=>{
-        props.onHide()
-      },1000)
-      
+    // Hide Modal After Clicking On Buy Starter Plan Button
+    setTimeout(() => {
+      props.onHide();
+    }, 1000);
   };
 
   //Essential Plan
@@ -114,7 +110,7 @@ function MyVerticallyCenteredModal(props) {
     let store = JSON.parse(localStorage.getItem("login"));
     let authToken = store.token;
 
-    const url = `${process.env.REACT_APP_BASE_URL}pro`; // Replace with your API endpoint
+    const url = `${process.env.REACT_APP_BASE_URL}pro`;
     const accessToken = authToken;
     const data = {
       planname: "Pro",
@@ -194,140 +190,140 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header>
         <Button style={{ marginLeft: "auto" }} onClick={props.onHide}>
-          X
+        X
         </Button>
       </Modal.Header>
 
       <Modal.Body>
         <Container style={{ backgroundColor: "" }}>
-          <div class="snip1517">
-            <div class="plan">
+          <div className="snip1517">
+            <div className="plan">
               <header>
-                <h4 class="plan-title">Starter</h4>
-                <div class="plan-cost">
-                  <span class="plan-price">Free</span>
-                  <span class="plan-type"></span>
+                <h4 className="plan-title">Starter</h4>
+                <div className="plan-cost">
+                  <span className="plan-price">Free</span>
+                  <span className="plan-type"></span>
                 </div>
               </header>
-              <ul class="plan-features">
+              <ul className="plan-features">
                 <li>
-                  <i class="ion-android-remove"> </i>5 Profiles Per Month
+                  <i className="ion-android-remove"> </i>5 Profiles Per Month
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>1 User Access
+                  <i className="ion-android-remove"> </i>1 User Access
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>
+                  <i className="ion-android-remove"> </i>
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>
+                  <i className="ion-android-remove"> </i>
                 </li>
               </ul>
-              <div class="plan-select">
+              <div className="plan-select">
                 <Button
                   className="inner_pricing"
                   onClick={starterPlan}
                   variant="primary"
-                  disabled={starter}
+                  disabled={props.plan != null || starter}
                 >
                   {starter ? "Upgrade " : "Upgrade"}
                 </Button>{" "}
               </div>
             </div>
-            <div class="plan">
+            <div className="plan">
               <header>
-                <h4 class="plan-title">Essential</h4>
-                <div class="plan-cost">
-                  <span class="plan-price">$48.90</span>
-                  <span class="plan-type">/month</span>
+                <h4 className="plan-title">Essential</h4>
+                <div className="plan-cost">
+                  <span className="plan-price">$48.90</span>
+                  <span className="plan-type">/month</span>
                 </div>
               </header>
-              <ul class="plan-features">
+              <ul className="plan-features">
                 <li>
-                  <i class="ion-android-remove"> </i>25 Profiles Per Month
+                  <i className="ion-android-remove"> </i>25 Profiles Per Month
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>Your Branding
+                  <i className="ion-android-remove"> </i>Your Branding
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>Removed Watermark
+                  <i className="ion-android-remove"> </i>Removed Watermark
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>2 Users
+                  <i className="ion-android-remove"> </i>2 Users
                 </li>
               </ul>
-              <div class="plan-select">
+              <div className="plan-select">
                 <Button
                   className="inner_pricing"
                   onClick={essentialPlan}
                   variant="primary"
-                  disabled={essential}
+                  disabled={props.plan == "Essential" || essential}
                 >
                   {essential ? "Please wait..." : "Upgrade"}
                 </Button>{" "}
               </div>
             </div>
-            <div class="plan ">
+            <div className="plan ">
               <header>
-                <h4 class="plan-title">Pro</h4>
-                <div class="plan-cost">
-                  <span class="plan-price">$87.90</span>
-                  <span class="plan-type">/month</span>
+                <h4 className="plan-title">Pro</h4>
+                <div className="plan-cost">
+                  <span className="plan-price">$87.90</span>
+                  <span className="plan-type">/month</span>
                 </div>
               </header>
-              <ul class="plan-features">
+              <ul className="plan-features">
                 <li>
-                  <i class="ion-android-remove"> </i> 50 Profiles per month
+                  <i className="ion-android-remove"> </i> 50 Profiles per month
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>Your branding
+                  <i className="ion-android-remove"> </i>Your branding
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>Removed Watermark
+                  <i className="ion-android-remove"> </i>Removed Watermark
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>4 Users
+                  <i className="ion-android-remove"> </i>4 Users
                 </li>
               </ul>
-              <div class="plan-select">
+              <div className="plan-select">
                 <Button
                   className="inner_pricing"
                   onClick={proPlan}
                   variant="primary"
-                  disabled={pro}
+                  disabled={props.plan == "pro" || pro}
                 >
                   {pro ? "Please wait..." : "Upgrade"}
                 </Button>{" "}
               </div>
             </div>
-            <div class="plan">
+            <div className="plan">
               <header>
-                <h4 class="plan-title">Ultimate</h4>
-                <div class="plan-cost">
-                  <span class="plan-price">$149.90</span>
-                  <span class="plan-type">/month</span>
+                <h4 className="plan-title">Ultimate</h4>
+                <div className="plan-cost">
+                  <span className="plan-price">$149.90</span>
+                  <span className="plan-type">/month</span>
                 </div>
               </header>
-              <ul class="plan-features">
+              <ul className="plan-features">
                 <li>
-                  <i class="ion-android-remove"> </i> Unlimited Profiles
+                  <i className="ion-android-remove"> </i> Unlimited Profiles
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>Your branding
+                  <i className="ion-android-remove"> </i>Your branding
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>Removed Watermark
+                  <i className="ion-android-remove"> </i>Removed Watermark
                 </li>
                 <li>
-                  <i class="ion-android-remove"> </i>8 Users
+                  <i className="ion-android-remove"> </i>8 Users
                 </li>
               </ul>
-              <div class="plan-select">
+              <div className="plan-select">
                 <Button
                   className="inner_pricing"
                   onClick={ultimatePlan}
                   variant="primary"
-                  disabled={ultimate}
+                  disabled={props.plan == "ultimate" || ultimate}
                 >
                   {ultimate ? "Please wait..." : "Upgrade"}
                 </Button>{" "}
@@ -336,36 +332,30 @@ function MyVerticallyCenteredModal(props) {
           </div>
         </Container>
       </Modal.Body>
-      {/* 
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer> */}
     </Modal>
   );
 }
 
-// Getting Loggedin user Name and Email
 
 
 function Header() {
-  const [username,setUsername] = useState();
-  useEffect(()=>{
-    setUsername(JSON.parse(localStorage.getItem('userName')))
-  },[])
+  const [username, setUsername] = useState();
+  useEffect(() => {
+    setUsername(JSON.parse(localStorage.getItem("userName")));
+  }, []);
 
-  const [plandetails, setPlandetails]= useState()
+  const [plandetails, setPlandetails] = useState();
 
-   // Plan Details API
-   useEffect(()=>{
-    planDetails()
-   },[])
-   function planDetails(){
+  // Plan Details API
+  useEffect(() => {
+    planDetails();
+  }, []);
+  function planDetails() {
     let store = JSON.parse(localStorage.getItem("login"));
     let authToken = store.token;
 
     const url = `${process.env.REACT_APP_BASE_URL}planname_cvcount`;
     const accessToken = authToken;
-  
 
     const requestOptions = {
       method: "GET",
@@ -376,20 +366,18 @@ function Header() {
       // body: JSON.stringify(data),
     };
 
-
     fetch(url, requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        setPlandetails(data)
-      
+        setPlandetails(data);
+        if (data.planname === "pro") {
+          console.log("you have taken Pro Plan");
+        } else {
+        }
       })
-      .catch((error) => {
-      });
-  
- }
 
-
-
+      .catch((error) => {});
+  }
 
   const [modalShow, setModalShow] = React.useState(false);
   let history = useHistory();
@@ -406,8 +394,6 @@ function Header() {
     document.body.appendChild(node);
   };
 
-
-
   const logOut = () => {
     localStorage.removeItem("login");
     localStorage.removeItem("userName");
@@ -419,8 +405,8 @@ function Header() {
   };
 
   return (
-    <Navbar bg="dark" expand="lg" >
-      <Container fluid style={{backgroundColor:''}}>
+    <Navbar bg="dark" expand="lg">
+      <Container fluid style={{ backgroundColor: "" }}>
         <div className="d-flex justify-content-center align-items-center ml-2 ml-lg-0">
           <Button
             variant="dark"
@@ -434,7 +420,7 @@ function Header() {
 
           <div className="navbar_text">
             <h4>
-              Welcome back,  {username && username.fname ? username.fname : ""}
+              Welcome back, {username && username.fname ? username.fname : ""}
             </h4>
             <p>Hey,What's happening!</p>
           </div>
@@ -452,32 +438,40 @@ function Header() {
               backgroundColor: "",
               display: "flex",
               alignItems: "center",
-              marginLeft:'auto'
+              marginLeft: "auto",
             }}
           >
-          
             <Nav.Item>
               <Nav.Link
                 className="m-0"
                 href=""
                 onClick={(e) => e.preventDefault()}
               >
-                {plandetails?.planname ? <span className="nav_free_btn"> {plandetails?.planname} : {plandetails?.cv_count}</span> : 'No Active Plan'}
+                {plandetails?.planname ? (
+                  <span className="nav_free_btn">
+                    {" "}
+                    {plandetails?.planname} : {plandetails?.cv_count}
+                  </span>
+                ) : (
+                  "No Active Plan"
+                )}
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-           
-            <button
-             className="home_navigation_getDemo2"
-             type="submit"
-              onClick={() => setModalShow(true)}>
-                 Upgrade Plan</button>
-            
-            <MyVerticallyCenteredModal
-              show={modalShow}
-              onHide={() => setModalShow(false)}
-            />
+              <button
+                className="home_navigation_getDemo2"
+                type="submit"
+                onClick={() => setModalShow(true)}
+              >
+                Upgrade Plan
+              </button>
+
+              <MyVerticallyCenteredModal
+                show={modalShow}
+                plan={plandetails?.planname}
+                onHide={() => setModalShow(false)}
+              />
             </Nav.Item>
             <Nav.Item>
               <Dropdown as={Nav.Item}>
@@ -500,7 +494,10 @@ function Header() {
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu-right">
                   <Dropdown.Item>
-                    <Link to="/forgot-password" style={{ color: "#333333", textDecoration:'none' }}>
+                    <Link
+                      to="/forgot-password"
+                      style={{ color: "#333333", textDecoration: "none" }}
+                    >
                       Reset Password
                     </Link>
                   </Dropdown.Item>
@@ -511,10 +508,7 @@ function Header() {
                 </Dropdown.Menu>
               </Dropdown>
             </Nav.Item>
-
-            
           </Nav>
-     
         </Navbar.Collapse>
       </Container>
     </Navbar>

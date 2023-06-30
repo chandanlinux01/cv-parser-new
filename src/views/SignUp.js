@@ -365,7 +365,7 @@ function SignUp() {
               </Row>
 
               <button
-                className="home_navigation_getDemo2"
+                className=" my-3 home_navigation_getDemo2"
                 type="submit"
                 disabled={loading} // Disable the button while loading
               >
@@ -387,7 +387,7 @@ function SignUp() {
               style={{
                 color: "gray",
                 textAlign: "center",
-                fontSize: "12px",
+                fontSize: "12px"
               }}
             >
               By signing up, you agree to our Privacy Policy, Terms of Service,{" "}
