@@ -43,9 +43,8 @@ function ProfileGenerator() {
   const [website, setWebsite] = useState("");
   const [phone, setPhone] = useState("");
   const storedCompany = localStorage.removeItem("company");
-    const storedWebsite = localStorage.removeItem("website");
-    const storedPhone = localStorage.removeItem("phone");
-
+  const storedWebsite = localStorage.removeItem("website");
+  const storedPhone = localStorage.removeItem("phone");
 
   const [loading, setLoading] = useState(false); // Add loading state
 
@@ -96,7 +95,6 @@ function ProfileGenerator() {
         body: formData,
       });
 
-
       if (response.ok) {
         console.log("result is", response);
 
@@ -127,38 +125,35 @@ function ProfileGenerator() {
     setFiles2([]);
   };
 
-useEffect(()=>{
-  getDataFromAPI()
-},[])
+  useEffect(() => {
+    getDataFromAPI();
+  }, []);
 
   //Get Logo APIs
-async function getDataFromAPI(){
+  async function getDataFromAPI() {
     // Local storage for normal login
     let store = JSON.parse(localStorage.getItem("login"));
     // console.log("store is", store);
     let authToken = store.token;
 
-    
-      fetch(`${process.env.REACT_APP_BASE_URL}getlogo`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
+    fetch(`${process.env.REACT_APP_BASE_URL}getlogo`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
         setCompany(data.company_name);
         setWebsite(data.officialy_company_website);
         setPhone(data.phone_no);
-        console.log('data are',data);
+        console.log("data are", data);
       })
-      .catch(error => console.log(error));
-  };
+      .catch((error) => console.log(error));
+  }
 
   return (
     <>
-
-
       <Container fluid>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <ToastContainer
@@ -245,7 +240,6 @@ async function getDataFromAPI(){
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
                   id="web_name_id"
-
                 />
                 <label>Website Address</label>
               </div>
@@ -266,7 +260,6 @@ async function getDataFromAPI(){
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   id="phone_name_id"
-
                 />
                 <label>Phone Number</label>
               </div>
@@ -277,53 +270,49 @@ async function getDataFromAPI(){
             {/* Template Logo Starts*/}
 
             <Col
-              md={12}
-              style={{
-                backgroundColor: "",
-                height: "",
+            md={12}
+            style={{
+              backgroundColor: "",
+              height: "",
 
-                marginTop: "20px",
-                padding: "0 10px",
-                cursor: "pointer",
-                borderRadius: "6px",
+              marginTop: "20px",
+              padding: "0 10px",
+              cursor: "pointer",
+              borderRadius: "6px",
+            }}
+          >
+            <FilePond
+              ref={logoRef}
+              files={logoFiles}
+              allowMultiple={true}
+              imagePreviewMaxHeight={10}
+              server={{
+                process: (fieldName, file, metadata, load) => {
+                  setTimeout(() => {
+                    load(Date.now());
+                  }, 1500);
+                },
+                load: (source, load) => {
+                  fetch(source)
+                    .then((res) => res.blob())
+                    .then(load);
+                },
               }}
-            >
-              <FilePond
-                ref={logoRef}
-                files={logoFiles}
-                allowMultiple={true}
-                imagePreviewMaxHeight={10}
-                server={{
-                  process: (fieldName, file, metadata, load) => {
-                    setTimeout(() => {
-                      load(Date.now());
-                    }, 1500);
-                  },
-                  load: (source, load) => {
-                    fetch(source)
-                      .then((res) => res.blob())
-                      .then(load);
-                  },
-                }}
-                onupdatefiles={handleUpdateFiles2}
-                id="template_logo"
+              onupdatefiles={handleUpdateFiles2}
+              id="template_logo"
 
-                acceptedFileTypes={"image/png"}
-                acceptedFileExtensions={[".jpg", ".jpeg", ".png", ".gif"]}
-                labelIdle={
-                  '<div><span className="filepond--label-action">Upload Your Template Logo</span><br/><span className="custom-icon"><i className="fa-regular fa-image"></i></span></div>'
-                }
-              />
-            </Col>
+              acceptedFileTypes={"image/png"}
+              acceptedFileExtensions={[".jpg", ".jpeg", ".png", ".gif"]}
+              labelIdle={
+                '<div><span class="filepond--label-action">Upload Your Template Logo</span><br/><span class="custom-icon"><i class="fa-regular fa-image"></i></span></div>'
+              }
+            />
+          </Col>
           </Row>
-          <div className=" text-center">
-            {/*  <button variant="success" style={{ marginTop: "10px" }} type="submit">
-        SUBMIT
-      </button>
-*/}
-            <Button type="submit" className="generate_my_profile">
+          <div className=" text-center" style={{padding:'0 10px'}}>
+            <button className="home_navigation_getDemo2" type="submit">
               Generate My Profile
-            </Button>{" "}
+            </button>
           </div>
         </form>
       </Container>

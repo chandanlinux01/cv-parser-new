@@ -426,7 +426,9 @@ form.nosubmit {
 {
   appearance: button;
   backface-visibility: hidden;
-  background-color: #405cf5;
+  /* background-color: #405cf5; */
+  background-color: #369763;
+
   border-radius: 6px;
   border-width: 0;
   box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
@@ -475,7 +477,9 @@ form.nosubmit {
 }
 
 .home_navigation_getDemo2:hover, .home_navigation_getDemo:hover {
-  background-color: #1d35bd;
+  /* background-color: #1d35bd; */
+  background-color: #369763;
+
 }
 /* Start work efficiently with Profilgenerator */
 
@@ -768,7 +772,6 @@ input[type="file"]::file-selector-button:hover {
 /* File Upload Styling File Pond */
 .filepond--panel-root {
   background-color: #1b1b1b !important;
-  border: 1px solid #405cf5;
 }
 
 
@@ -778,7 +781,7 @@ input[type="file"]::file-selector-button:hover {
 
 /* When You drop file  */
 .filepond--item-panel {
-  background-color:#394fc9 !important;
+  /* background-color:#394fc9 !important; */
 }
 .filepond--wrapper {
   height: 200px !important;
@@ -851,7 +854,9 @@ input:valid ~ label {
 
 .fa-image,
 .fa-file-pdf {
-  color: #405cf5;
+  /* color: #405cf5; */
+  color: #369763;
+
   font-size: 40px !important;
   margin-top: 15px !important;
 }
@@ -1662,7 +1667,8 @@ font-size: 30px;
 }
 .sidebar .nav li.active .nav-link, body > .navbar-collapse .nav li.active .nav-link
 {
-  background-color: #405cf5;
+  /* background-color: #405cf5; */
+  background-color: #369763;
 }
 
 .sidebar .nav li .nav-link p, body > .navbar-collapse .nav li .nav-link p
@@ -1897,7 +1903,9 @@ font-size: 30px;
 .forgor_icon
 {
   color: rgb(255, 255, 255);
-  background-color: #405cf5;
+  /* background-color: #405cf5; */
+  background-color: #369763;
+
   border-radius: 50px;
   width: 100px;
   height: 100px;

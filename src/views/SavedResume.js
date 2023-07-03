@@ -46,6 +46,7 @@ createTheme(
 const resumeData = moment().format(" hh:mm: p");
 
 function SavedResume() {
+  const [loading, setLoading] = useState(false); // Add loading state
   const [pending, setPending] = React.useState(true);
   const [rows, setRows] = React.useState([]);
   React.useEffect(() => {
@@ -144,6 +145,7 @@ function SavedResume() {
 
   // Download For English
   const downloadCv = (id) => {
+    setLoading(true); // Set loading state to true when starting the download
     let store = JSON.parse(localStorage.getItem("login"));
     let authToken = store.token;
     var myHeaders = new Headers();
@@ -176,14 +178,18 @@ function SavedResume() {
 
         // Clean up by removing the link
         document.body.removeChild(link);
+        setLoading(false); // Set loading state to false in both success and error scenarios
       })
       .catch((error) => {
         console.error("Error fetching PDF:", error);
       });
+      
   };
 
   // Download For German
   const downloadGermna = (id) => {
+    setLoading(true); // Set loading state to true when starting the download
+
     let store = JSON.parse(localStorage.getItem("login"));
     let authToken = store.token;
     var myHeaders = new Headers();
@@ -216,15 +222,28 @@ function SavedResume() {
 
         // Clean up by removing the link
         document.body.removeChild(link);
+        setLoading(false); // Set loading state to false in both success and error scenarios
+
       })
       .catch((error) => {
         console.error("Error fetching PDF:", error);
       });
   };
 
+
+
+
   return (
     <>
       <Container fluid>
+
+      {
+        loading ? (
+          <Loader/>
+        ) : (
+
+        
+     
         <DataTable
           title="Last Profiles"
           columns={columns}
@@ -236,6 +255,8 @@ function SavedResume() {
           theme="solarized"
           progressPending={pending}
         />
+        )
+      }
       </Container>
       {/*    <button onClick={downloadPdf}>Download PDF</button> */}
     </>

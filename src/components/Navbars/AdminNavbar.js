@@ -448,7 +448,7 @@ function Header() {
                 onClick={(e) => e.preventDefault()}
               >
                 {plandetails?.planname ? (
-                  <span className="nav_free_btn">
+                  <span className="nav_free_btn" style={{textTransform:'capitalize'}}>
                     {" "}
                     {plandetails?.planname} : {plandetails?.cv_count}
                   </span>
