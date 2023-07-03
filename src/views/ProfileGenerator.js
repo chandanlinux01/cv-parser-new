@@ -55,8 +55,8 @@ function ProfileGenerator() {
   let history = useHistory();
 
   useEffect(() => {
-    // console.log("FilePond instance has initialized", cvRef.current);
-    // console.log("FilePond instance has initialized", logoRef.current);
+    console.log("FilePond instance has initialized", cvRef.current);
+    console.log("FilePond instance has initialized", logoRef.current);
   }, []);
 
   // CV State Update
@@ -66,7 +66,7 @@ function ProfileGenerator() {
 
   // Logo State Update
   const handleUpdateFiles2 = (fileItems) => {
-    setLogoFiles(fileItems.map((fileItem) => fileItem.file));
+    setFiles2(fileItems.map((fileItem) => fileItem.file));
   };
   //File Pond ENds
 
@@ -147,7 +147,7 @@ function ProfileGenerator() {
         setCompany(data.company_name);
         setWebsite(data.officialy_company_website);
         setPhone(data.phone_no);
-        console.log("data are", data);
+        // console.log("data are", data);
       })
       .catch((error) => console.log(error));
   }
