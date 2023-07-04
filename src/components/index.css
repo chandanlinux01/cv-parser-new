@@ -851,6 +851,16 @@ input:valid ~ label {
   text-decoration: none !important;
   font-size: 20px !important;
 }
+.filepond--drop-label
+{
+  color: rgb(245, 245, 245);
+  text-decoration: none !important;
+  font-size: 20px !important;
+}
+.xxxx img
+{
+  width: 100px;
+}
 
 .fa-image,
 .fa-file-pdf {

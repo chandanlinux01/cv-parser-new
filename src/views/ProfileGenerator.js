@@ -34,9 +34,7 @@ function ProfileGenerator() {
   const cvRef = useRef(null);
   const logoRef = useRef(null);
 
-  // console.log('cv is',files);
 
-  // PAge 2 State
   const [files, setFiles] = useState([]);
   const [files2, setFiles2] = useState([]);
   const [company, setCompany] = useState("");
@@ -72,6 +70,17 @@ function ProfileGenerator() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+ // Check if any of the input fields are empty
+ if (!company || !website || !phone) {
+  toast.error("Please fill all three input fields", {
+    position: toast.POSITION.TOP_CENTER,
+    className: "toast-message",
+  });
+  return;
+}
+
+
     setLoading(true); // Set loading state to true
 
     // Local storage for normal login
@@ -144,10 +153,12 @@ function ProfileGenerator() {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log("data are", data);
         setCompany(data.company_name);
         setWebsite(data.officialy_company_website);
         setPhone(data.phone_no);
-        // console.log("data are", data);
+        setFiles2([data.resume_logo_url]);
+      
       })
       .catch((error) => console.log(error));
   }
@@ -169,7 +180,7 @@ function ProfileGenerator() {
             theme="light"
           />
           <Row style={{ background: "#1b1b1b", height: "" }}>
-            {/* File Pond Starts*/}
+            {/* cv  Starts*/}
             <Col style={{ backgroundColor: "black", height: "" }}>
               <FilePond
                 ref={cvRef}
@@ -192,6 +203,7 @@ function ProfileGenerator() {
                 labelIdle={
                   '<div><span className="filepond--label-action">Drop Down Your CV </span><br/><span className="custom-icon"><i class="fa-sharp fa-regular fa-file-pdf"></i></span></div>'
                 }
+                
               />
             </Col>
           </Row>
@@ -304,7 +316,7 @@ function ProfileGenerator() {
               acceptedFileTypes={"image/png"}
               acceptedFileExtensions={[".jpg", ".jpeg", ".png", ".gif"]}
               labelIdle={
-                '<div><span class="filepond--label-action">Upload Your Template Logo</span><br/><span class="custom-icon"><i class="fa-regular fa-image"></i></span></div>'
+                '<div><span class="filepond--label-action">Upload Your Template Logo</span><br/><span class="custom-icon xxxx"><img src="http://profilgenerator.de/media/Apple-Logo_qpvNHeZ.png"/></span></div>'
               }
             />
           </Col>
