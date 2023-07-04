@@ -40,6 +40,7 @@ function ProfileGenerator() {
   const [company, setCompany] = useState("");
   const [website, setWebsite] = useState("");
   const [phone, setPhone] = useState("");
+  const [filesLogo, setFilesLogo] = useState('<i class="fa-regular fa-image"></i>');
   const storedCompany = localStorage.removeItem("company");
   const storedWebsite = localStorage.removeItem("website");
   const storedPhone = localStorage.removeItem("phone");
@@ -157,7 +158,7 @@ function ProfileGenerator() {
         setCompany(data.company_name);
         setWebsite(data.officialy_company_website);
         setPhone(data.phone_no);
-        setFiles2([data.resume_logo_url]);
+        setFilesLogo('<img src="'+data.resume_logo_url+'"/>');
       
       })
       .catch((error) => console.log(error));
@@ -165,6 +166,7 @@ function ProfileGenerator() {
 
   return (
     <>
+    
       <Container fluid>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <ToastContainer
@@ -316,7 +318,7 @@ function ProfileGenerator() {
               acceptedFileTypes={"image/png"}
               acceptedFileExtensions={[".jpg", ".jpeg", ".png", ".gif"]}
               labelIdle={
-                '<div><span class="filepond--label-action">Upload Your Template Logo</span><br/><span class="custom-icon xxxx"><img src="http://profilgenerator.de/media/Apple-Logo_qpvNHeZ.png"/></span></div>'
+                '<div><span class="filepond--label-action">Upload Your Template Logo</span><br/><span class="custom-icon manual_upload">'+filesLogo+'</span></div>'
               }
             />
           </Col>
