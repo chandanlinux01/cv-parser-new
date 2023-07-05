@@ -178,7 +178,7 @@ function SignUp() {
                   color: "#fff",
                 }}
               >
-                Get started with <br /> ProfileGenerator....{" "}
+                Get Started with <br /> ProfileGenerator....{" "}
               </h1>
               <p
                 style={{ color: "gray", margin: "30px 0", fontWeight: "bold" }}
