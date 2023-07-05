@@ -130,10 +130,14 @@ function SignIn() {
           }
 
           if (data.error) {
+            console.log('data err',data.error);
             toast.error(data.error, {
               position: toast.POSITION.TOP_CENTER,
               className: "toast-message",
             });
+            setLoading(false);
+            setButtonText("Sign In"); // Reset button text
+
           }
         })
         .catch((e) => {

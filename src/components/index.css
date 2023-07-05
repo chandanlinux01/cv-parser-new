@@ -860,6 +860,7 @@ input:valid ~ label {
 .manual_upload img
 {
   width: 100px;
+  margin-top: 10px;
 }
 
 .fa-image,

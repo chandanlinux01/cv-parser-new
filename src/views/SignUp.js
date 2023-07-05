@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import site from "../assets/img/profileGenerator.png";
-
+import GoogleButton from 'react-google-button'
 import Form from "react-bootstrap/Form";
 import { Link, useHistory } from "react-router-dom";
 import { useFormik } from "formik";
@@ -97,10 +97,24 @@ function SignUp() {
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log('data emails issss',data.email);
+          
+          if (data.email) {
+            toast.error(data.email[0], {
+              position: toast.POSITION.TOP_CENTER,
+              className: "toast-message",
+            });
+          }
+
+          else{
+             history.push("/signIn"); // Redirect to the sign-in page
+          }
+             
+          
           setLoading(false);
           setButtonText("Create Account"); // Reset button text
           setButtonColor("#2ddb81"); // Reset button color
-          history.push("/signIn"); // Redirect to the sign-in page
+          // history.push("/signIn"); // Redirect to the sign-in page
         })
         .catch((e) => {
           setLoading(false);
@@ -110,6 +124,7 @@ function SignUp() {
     },
   });
 
+ 
   return (
     <>
       <Container
@@ -371,16 +386,8 @@ function SignUp() {
               >
                 {loading ? "Please wait..." : buttonText}{" "}
               </button>
-
-              {/* 
-              <GoogleLogin
-              clientId="986930600127-u1qbih3n80r8qr720o2a77ja0hnouq3c.apps.googleusercontent.com"
-              buttonText="Sign Up With Google"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              cookiePolicy={'single_host_origin'}
-            />
-            */}
+            
+        
             </Form>
 
             <p
