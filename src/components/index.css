@@ -1961,3 +1961,9 @@ font-size: 30px;
   color: #405cf5;
   font-weight: bold;
 }
+
+.copywright_sec
+{
+  color: gray !important;
+  text-align: center;
+}

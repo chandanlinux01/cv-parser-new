@@ -169,7 +169,7 @@ function Home({ authorized }) {
                 </span>
               </div>
               <h1 className="home_section_1_heading">
-                Candidatesss Profiles Easily Generated
+                Candidate Profiles Easily Generated
               </h1>
               <p className="home_section_1_para">
                 Profile generator creates a professional candidate profile from
@@ -1007,7 +1007,7 @@ function Home({ authorized }) {
                     data-wow-offset="0"
                     data-wow-delay="0.8s "
                   >
-                    <p className="text-muted">
+                    <p className="text-muted copywright_sec">
                       Copyright © 2023 ProfileGenerator
                     </p>
                   </div>
