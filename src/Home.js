@@ -169,7 +169,7 @@ function Home({ authorized }) {
                 </span>
               </div>
               <h1 className="home_section_1_heading">
-                Candidate Profiles Easily Generated
+                Candidatesss Profiles Easily Generated
               </h1>
               <p className="home_section_1_para">
                 Profile generator creates a professional candidate profile from
