@@ -18,6 +18,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { GoogleLogin } from 'react-google-login';
 import axios from 'axios';
 
+
+
 function SignUp() {
   const [loading, setLoading] = useState(false);
   const [buttonText, setButtonText] = useState("Create Account"); // Add button text state
@@ -135,7 +137,6 @@ function SignUp() {
         });
     },
   });
-
  
   return (
     <>
@@ -419,7 +420,6 @@ function SignUp() {
                           onFailure={responseGoogle}
                           cookiePolicy={'single_host_origin'}
                         />
-
           </Col>
         </Row>
       </Container>
