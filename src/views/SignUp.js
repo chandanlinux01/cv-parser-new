@@ -16,13 +16,15 @@ import { useEffect } from "react";
 // import GoogleLogin from '@leecheuk/react-google-login';
 import { ToastContainer, toast } from "react-toastify";
 
+import axios from 'axios';
+
 function SignUp() {
   const [loading, setLoading] = useState(false);
   const [buttonText, setButtonText] = useState("Create Account"); // Add button text state
   const [buttonColor, setButtonColor] = useState("#405cf5"); // Add button color state
   let history = useHistory();
-  const responseGoogle = (response) => {
-    const user = {
+  const responseGoogle2 = (response) => {
+  const user = {
       first_name: response.profileObj.givenName,
       last_name: response.profileObj.familyName,
       username: "",
@@ -123,7 +125,6 @@ function SignUp() {
         });
     },
   });
-
  
   return (
     <>
@@ -400,6 +401,7 @@ function SignUp() {
               By signing up, you agree to our Privacy Policy, Terms of Service,{" "}
               <br /> and Fair Use Policy.
             </p>
+	  
           </Col>
         </Row>
       </Container>
