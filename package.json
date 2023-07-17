@@ -25,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-google-button": "^0.7.2",
+    "react-google-login": "^5.2.2",
     "react-icons": "^4.10.1",
     "react-loader-spinner": "^5.3.4",
     "react-owl-carousel": "^2.3.3",

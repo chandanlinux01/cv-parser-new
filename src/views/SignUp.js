@@ -15,13 +15,15 @@ import { gapi } from "gapi-script";
 import { useEffect } from "react";
 // import GoogleLogin from '@leecheuk/react-google-login';
 import { ToastContainer, toast } from "react-toastify";
+import { GoogleLogin } from 'react-google-login';
+import axios from 'axios';
 
 function SignUp() {
   const [loading, setLoading] = useState(false);
   const [buttonText, setButtonText] = useState("Create Account"); // Add button text state
   const [buttonColor, setButtonColor] = useState("#405cf5"); // Add button color state
   let history = useHistory();
-  const responseGoogle = (response) => {
+  const responseGoogle2 = (response) => {
     const user = {
       first_name: response.profileObj.givenName,
       last_name: response.profileObj.familyName,
@@ -58,6 +60,16 @@ function SignUp() {
     if (response.accessToken) {
       toast.success("Success Notification !");
       history.push("/admin/profile-generator");
+    }
+  };
+  const responseGoogle = async () => {
+    try {
+      const apiResponse = await axios.post('http://16.171.147.89/google/');
+      console.log(apiResponse.data);
+      // Perform any further actions with the API response data
+    } catch (error) {
+      console.error(error);
+      // Handle error scenarios
     }
   };
 
@@ -400,6 +412,14 @@ function SignUp() {
               By signing up, you agree to our Privacy Policy, Terms of Service,{" "}
               <br /> and Fair Use Policy.
             </p>
+            <GoogleLogin
+                          clientId="353531269526-un4ro55bjf7qb39stbb256ktfoscllfi.apps.googleusercontent.com"
+                          buttonText="Sign up with Google"
+                          onSuccess={responseGoogle}
+                          onFailure={responseGoogle}
+                          cookiePolicy={'single_host_origin'}
+                        />
+
           </Col>
         </Row>
       </Container>
