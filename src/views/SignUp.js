@@ -413,6 +413,7 @@ function SignUp() {
               By signing up, you agree to our Privacy Policy, Terms of Service,{" "}
               <br /> and Fair Use Policy.
             </p>
+            {/* 
             <GoogleLogin
                           clientId="353531269526-un4ro55bjf7qb39stbb256ktfoscllfi.apps.googleusercontent.com"
                           buttonText="Sign up with Google"
@@ -420,6 +421,7 @@ function SignUp() {
                           onFailure={responseGoogle}
                           cookiePolicy={'single_host_origin'}
                         />
+                        */}
           </Col>
         </Row>
       </Container>
